@@ -1,8 +1,8 @@
 FROM centos
 RUN yum update -y
 RUN yum install openssh-server -y
-RUN useradd student
-RUN echo student:student | chpasswd
+RUN useradd neeraj
+RUN echo neeraj:redhat | chpasswd
 RUN ssh-keygen -A
 RUN rm -f /var/run/nologin
 EXPOSE 22
