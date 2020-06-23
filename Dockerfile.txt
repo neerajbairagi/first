@@ -1,0 +1,9 @@
+FROM centos
+RUN yum update -y
+RUN yum install openssh-server -y
+RUN useradd student
+RUN echo student:student | chpasswd
+RUN ssh-keygen -A
+RUN rm -f /var/run/nologin
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
